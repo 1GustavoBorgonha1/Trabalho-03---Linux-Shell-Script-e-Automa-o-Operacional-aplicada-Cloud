@@ -1,0 +1,30 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libgcrypt20 libgnutls30 liblzma5
+3 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1587 kB of archives.
+After this operation, 8192 B of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgcrypt20 amd64 1.9.4-3ubuntu3.2 [516 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 liblzma5 amd64 5.2.5-2ubuntu1.1 [99.6 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgnutls30 amd64 3.7.3-4ubuntu1.9 [971 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1587 kB in 0s (7250 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4393 files and directories currently installed.)
+Preparing to unpack .../libgcrypt20_1.9.4-3ubuntu3.2_amd64.deb ...
+Unpacking libgcrypt20:amd64 (1.9.4-3ubuntu3.2) over (1.9.4-3ubuntu3) ...
+Setting up libgcrypt20:amd64 (1.9.4-3ubuntu3.2) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4393 files and directories currently installed.)
+Preparing to unpack .../liblzma5_5.2.5-2ubuntu1.1_amd64.deb ...
+Unpacking liblzma5:amd64 (5.2.5-2ubuntu1.1) over (5.2.5-2ubuntu1) ...
+Setting up liblzma5:amd64 (5.2.5-2ubuntu1.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4393 files and directories currently installed.)
+Preparing to unpack .../libgnutls30_3.7.3-4ubuntu1.9_amd64.deb ...
+Unpacking libgnutls30:amd64 (3.7.3-4ubuntu1.9) over (3.7.3-4ubuntu1.8) ...
+Setting up libgnutls30:amd64 (3.7.3-4ubuntu1.9) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
