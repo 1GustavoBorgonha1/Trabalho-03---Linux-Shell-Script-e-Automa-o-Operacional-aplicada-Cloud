@@ -35,6 +35,9 @@ Trabalho-03/
 |
 |-- backups/
 |-- clinica_vet/
+|   |-- exames/
+|   |-- pacientes/
+|   |-- prontuarios/
 |-- evidencias/
 |-- logs/
 |-- scripts/
@@ -53,6 +56,40 @@ Trabalho-03/
 |-- Dockerfile
 |-- README.md
 ```
+
+---
+
+## Explicação de cada script
+
+### 01_update.sh
+Atualiza as listas de pacotes e repositórios do sistema operacional Ubuntu de forma automática, direcionando a saída técnica para o histórico de logs.
+
+### 02_apache.sh
+Realiza a instalação e ativação do servidor web Apache2 e do pacote ImageMagick, validando o correto funcionamento do serviço de rede.
+
+### 03_estrutura.sh
+Cria a árvore física de diretórios dedicados da clínica dentro de /app/clinica_vet/ (prontuarios, exames e pacientes), limpando registros temporários antigos.
+
+### 04_backup.sh
+Compacta os arquivos da clínica em um arquivo consolidado no formato .tar.gz, aplicando marcação temporal dinâmica (data e hora) no nome do arquivo final.
+
+### 05_deploy.sh
+Executa a limpeza da pasta pública padrão do Apache, publica a versão mais recente do dashboard contido em source/ e valida a integridade do arquivo index.html.
+
+### 06_processos.sh
+Oferece funções interativas para buscar, listar e encerrar serviços por PID, contendo uma trava de segurança que bloqueia o encerramento se nenhum número de processo for passado.
+
+### 07_monitoramento.sh
+Captura dados em tempo real sobre o uso de CPU, memória RAM e Disco do servidor, disparando alertas visuais caso os níveis ultrapassem o limite crítico de 80%.
+
+### 08_usuarios_permissoes.sh
+Cria o grupo equipe_veterinaria e o usuário administrador vet_admin. Substitui o uso inseguro de chmod 777 por permissões restritivas chmod 770 para blindar dados médicos.
+
+### 09_relatorio.sh
+Coleta dados técnicos do hardware, caminhos de rede e status dos logs operacionais, exportando uma auditoria consolidada para um arquivo de texto.
+
+### menu.sh
+Fornece uma interface em formato de menu interativo no terminal, centralizando o acesso e a execução simplificada das opções de 1 a 9.
 
 ---
 
@@ -95,15 +132,40 @@ sudo docker compose up -d --build
 
 ```bash
 sudo docker exec -it trabalho03-linux bash
+```
+
+---
+
+### Como executar o menu principal
+
+Uma vez dentro do terminal do container, acesse o caminho correspondente e chame a interface:
+
+```bash
 cd scripts
 ./menu.sh
 ```
 
 ---
 
-### Acesse a aplicação web
+### Como executar cada script individualmente
 
-Após executar a opção de Deploy no menu interativo, abra no navegador:
+Para rodar os procedimentos administrativos de forma isolada, garanta a permissão com `chmod +x *.sh` e execute:
+
+- Atualização: `./01_update.sh`
+- Apache: `./02_apache.sh`
+- Estrutura: `./03_estrutura.sh`
+- Backup: `./04_backup.sh`
+- Deploy: `./05_deploy.sh`
+- Processos: `./06_processos.sh [listar | buscar nome | matar PID]`
+- Monitoramento: `./07_monitoramento.sh`
+- Segurança: `./08_usuarios_permissoes.sh`
+- Relatório: `./09_relatorio.sh`
+
+---
+
+### Como acessar o Apache no navegador
+
+Após executar a opção de Deploy (Opção 5) através do painel interativo, o servidor disponibilizará o sistema no endereço:
 
 ```bash
 http://localhost:8080
@@ -135,26 +197,30 @@ Isso garante que os arquivos físicos, logs e backups não sejam perdidos mesmo 
 
 ---
 
-## Funcionalidades do Sistema
+## Evidências de funcionamento
 
-- Painel interativo de administração via terminal (CLI)
-- Deploy automatizado de interface estática no Apache
-- Backup de dados com compactação tar.gz e versionamento temporal
-- Monitoramento de recursos de hardware (CPU, RAM e Disco)
-- Gerenciamento e encerramento de processos ativos
-- Segurança restritiva em pastas sensíveis com chmod 770
+Todas as capturas de tela exigidas para homologação técnica e auditoria visual da infraestrutura estão armazenadas em formato de imagem dentro do seguinte diretório do repositório:
+
+```bash
+/evidencias
+```
+
+O conteúdo engloba os testes individuais de cada comando Bash, logs gerados, container ativo e a renderização correta do dashboard no navegador.
 
 ---
 
-## Objetivo Acadêmico
+## Principais dificuldades encontradas
 
-Este projeto foi desenvolvido com foco em:
+- Adaptação dos comandos de inicialização e monitoramento de serviços em um ambiente conteinerizado enxuto, substituindo chamadas baseadas no Systemd (systemctl) pelo comando nativo service.
+- Configuração do pipeline de deploy local para assegurar que a clonagem da interface web ficasse perfeitamente alocada na raiz pública do Apache (/var/www/html), evitando subpastas aninhadas que quebravam o mapeamento do servidor.
 
-- Automação de processos operacionais através de Shell Script
-- Conteinerização de ambientes Linux
-- Configuração e provisionamento de servidores Apache
-- Implementação de políticas de permissões e segurança Unix
-- Versionamento e entrega contínua local
+---
+
+## Uso de Inteligência Artificial
+
+A Inteligência Artificial foi utilizada como ferramenta de suporte técnico e mentoria acadêmica ao longo do projeto. O uso concentrou-se no auxílio para a estruturação sintática de manipulação de strings com awk e sed na coleta de métricas, na modelagem lógica do menu interativo e na revisão de regras de segurança Unix. 
+
+Todos os testes de volume, caminhos absolutos no Docker, amarração do cenário de clínica veterinária e aplicação prática das políticas restritivas 770 foram executados e validados manualmente em ambiente local, garantindo a compreensão e o aprendizado prático da arquitetura desenvolvida.
 
 ---
 
