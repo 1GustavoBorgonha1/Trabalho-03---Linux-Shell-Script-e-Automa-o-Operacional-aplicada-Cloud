@@ -1,0 +1,15 @@
+===================================================
+Painel de Monitoramento - Clínica Veterinária
+Data da coleta: 2026-06-14 20:22:45
+===================================================
+Status Atual dos Recursos:
+- Uso de CPU: 1%
+- Uso de Memória RAM: 54%
+- Uso de Disco: 12%
+---------------------------------------------------
+Análise de Alertas:
+[OK] CPU operando com folga.
+[OK] Memória RAM dentro do limite seguro.
+[OK] Espaço em disco adequado.
+[ALERTA] Apache NÃO está em execução! O portal está fora do ar.
+===================================================
